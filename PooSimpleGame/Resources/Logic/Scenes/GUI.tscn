@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Resources/Visual/GUI/JetBrainsMono-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Resources/Visual/GUI/GUIFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Resources/Logic/Codes/GUI/MainGUI.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Visual/GUI/g2578.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Visual/GUI/g2559.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Visual/GUI/path2463.png" type="Texture" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 50
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -22,20 +17,21 @@ __meta__ = {
 [node name="Lb_fps" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "FPS : "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="spr_dash_unload" type="Sprite" parent="."]
-position = Vector2( 91.4495, 638.214 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 3, 611 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
+centered = false
 
 [node name="spr_dash_load" type="Sprite" parent="."]
-position = Vector2( 2.22623, 560.74 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 3, 611 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
@@ -55,5 +51,6 @@ position = Vector2( 149.824, -122.478 )
 texture = ExtResource( 5 )
 
 [node name="tmr_update" type="Timer" parent="."]
+process_mode = 0
 one_shot = true
 [connection signal="timeout" from="tmr_update" to="." method="_on_tmr_update_timeout"]

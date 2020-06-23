@@ -12,7 +12,7 @@ func _on_Player_groundedUpdated(isFloor):
 	### VERFIFICA SI EL JUGADOR ESTÁ EN EL AIRE, EN CASO DE SER CIERTO, SE DESHABILITA EL MARGEN VERTICAL
 	drag_margin_v_enabled =!isFloor
 
-func _process(delta):
+func _process(_delta):
 	### CADA FRAME REVISA ESTO
 	_check_facing()
 	prev_camera_pos= get_camera_position()

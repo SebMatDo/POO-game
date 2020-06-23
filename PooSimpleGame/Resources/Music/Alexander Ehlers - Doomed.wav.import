@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Alexander Ehlers - Doomed.wav-fdce4feee86de049ce528a851b016808.sample"
+
+[deps]
+
+source_file="res://Resources/Music/Alexander Ehlers - Doomed.wav"
+dest_files=[ "res://.import/Alexander Ehlers - Doomed.wav-fdce4feee86de049ce528a851b016808.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Visual/Player/Sprite_FX_Dust_0002-removebg-preview.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Logic/Codes/Particle_dust.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Dust"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 13, 22, 38, 30 ), Rect2( 84, 7, 59, 47 ), Rect2( 179, 8, 66, 57 ), Rect2( 283, 6, 73, 79 ), Rect2( 396, 9, 71, 76 ), Rect2( 518, 9, 76, 71 ), Rect2( 640, 8, 78, 77 ), Rect2( 776, 18, 67, 79 ), Rect2( 898, 37, 50, 61 ), Rect2( 1012, 44, 34, 54 ) ]
+}
+
+[node name="Sprite" type="Sprite"]
+position = Vector2( 73.4603, 9.52264 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 13, 22, 38, 30 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Dust = SubResource( 1 )
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

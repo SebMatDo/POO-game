@@ -44,26 +44,30 @@ texture = ExtResource( 2 )
 position = Vector2( -2.39496, -18.5609 )
 texture = ExtResource( 1 )
 
-[node name="spr_arm1" type="Sprite" parent="Sprite/spr_torso"]
+[node name="spr_weapon holder" type="Sprite" parent="Sprite/spr_torso"]
 self_modulate = Color( 0.72549, 0.721324, 0.458824, 1 )
-position = Vector2( -0.0639038, 26.552 )
-scale = Vector2( 0.3, 0.25 )
-texture = ExtResource( 3 )
-
-[node name="spr_arm2" type="Sprite" parent="Sprite/spr_torso"]
-self_modulate = Color( 0.72549, 0.721324, 0.458824, 1 )
-position = Vector2( 50.685, 11.4399 )
-scale = Vector2( 0.3, 0.25 )
+position = Vector2( 0, 25 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="tmr_CoyoteJump" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
 
 [node name="tmr_Dash" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
 
 [node name="tmr_DashCD" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="tmr_OnFloorCD" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
 [connection signal="groundedUpdated" from="." to="Camera2D" method="_on_Player_groundedUpdated"]
 [connection signal="timeout" from="tmr_CoyoteJump" to="." method="_on_tmr_CoyoteJump_timeout"]
 [connection signal="timeout" from="tmr_Dash" to="." method="_on_tmr_Dash_timeout"]

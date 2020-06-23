@@ -1,0 +1,173 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Logic/Codes/GUI/PAUSE.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Visual/GUI/GUIFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Resources/Visual/GUI/Linea.png" type="Texture" id=3]
+
+[node name="PAUSE" type="Control"]
+pause_mode = 2
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PAUSE_ON" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="PAUSE_ON"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.109804, 0.101961, 0.101961, 0.533333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PAUSE_ON"]
+margin_left = 559.166
+margin_top = 31.5548
+margin_right = 734.166
+margin_bottom = 65.5548
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.86601, -2.12493 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="PAUSE_ON/TextureRect"]
+margin_left = 0.466187
+margin_top = 38.6724
+margin_right = 175.466
+margin_bottom = 72.6724
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PAUSE_ON"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 318.506
+margin_top = 205.488
+margin_right = -321.494
+margin_bottom = -154.512
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PAUSE_ON/CenterContainer"]
+margin_right = 640.0
+margin_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 640, 360 )
+custom_constants/separation = 20
+
+[node name="Bt_resume" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+margin_right = 640.0
+margin_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 640, 70 )
+custom_fonts/font = ExtResource( 2 )
+text = "RESUMIR"
+
+[node name="Button2" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 640.0
+margin_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 640, 70 )
+custom_fonts/font = ExtResource( 2 )
+text = "CONTROLES"
+
+[node name="Button3" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+margin_top = 180.0
+margin_right = 640.0
+margin_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 640, 70 )
+custom_fonts/font = ExtResource( 2 )
+text = "OTRAOPCION"
+
+[node name="bt_bgSound" type="Button" parent="PAUSE_ON"]
+margin_left = 111.365
+margin_top = 560.474
+margin_right = 363.365
+margin_bottom = 630.474
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 150, 70 )
+rect_scale = Vector2( 1.00736, 1.05702 )
+custom_fonts/font = ExtResource( 2 )
+text = "BG SOUND"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bt_fxSound" type="Button" parent="PAUSE_ON"]
+margin_left = 942.422
+margin_top = 556.679
+margin_right = 1194.42
+margin_bottom = 626.679
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 150, 70 )
+rect_scale = Vector2( 1.00736, 1.05702 )
+custom_fonts/font = ExtResource( 2 )
+text = "FX SOUND"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PAUSE_OFF" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect2" type="TextureRect" parent="PAUSE_OFF"]
+margin_left = 1162.54
+margin_top = 23.9653
+margin_right = 1337.54
+margin_bottom = 57.9653
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.440376, -1.08055 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="PAUSE_OFF/TextureRect2"]
+margin_left = 0.466187
+margin_top = 38.6724
+margin_right = 175.466
+margin_bottom = 72.6724
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="bt_pause_off" type="Button" parent="PAUSE_OFF/TextureRect2"]
+margin_left = 6.81517
+margin_top = 8.06445
+margin_right = 56.8152
+margin_bottom = 88.0645
+rect_scale = Vector2( 3.16954, 0.764931 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PAUSE_ON/CenterContainer/VBoxContainer/Bt_resume" to="." method="_on_Bt_resume_pressed"]
+[connection signal="pressed" from="PAUSE_ON/bt_bgSound" to="." method="_on_bt_bgSound_pressed"]
+[connection signal="pressed" from="PAUSE_ON/bt_fxSound" to="." method="_on_bt_fxSound_pressed"]
+[connection signal="pressed" from="PAUSE_OFF/TextureRect2/bt_pause_off" to="." method="_on_bt_pause_off_pressed"]
