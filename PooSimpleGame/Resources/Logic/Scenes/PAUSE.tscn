@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Resources/Logic/Codes/GUI/PAUSE.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Visual/GUI/GUIFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Resources/Visual/GUI/Linea.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Visual/GUI/JetBrainsMono-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Visual/GUI/R3pA81hO_400x400.jpg" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 19
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 4 )
 
 [node name="PAUSE" type="Control"]
 pause_mode = 2
@@ -10,15 +21,15 @@ margin_right = 1280.0
 margin_bottom = 720.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="PAUSE_ON" type="Control" parent="."]
-visible = false
+[node name="PAUSE_ON" type="Popup" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="BlackOverlay" type="ColorRect" parent="PAUSE_ON"]
@@ -65,7 +76,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PAUSE_ON/CenterContainer"]
 margin_right = 640.0
-margin_bottom = 360.0
+margin_bottom = 430.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 640, 360 )
@@ -80,7 +91,7 @@ rect_min_size = Vector2( 640, 70 )
 custom_fonts/font = ExtResource( 2 )
 text = "RESUMIR"
 
-[node name="Button2" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+[node name="Bt_controles" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
 margin_top = 90.0
 margin_right = 640.0
 margin_bottom = 160.0
@@ -90,7 +101,7 @@ rect_min_size = Vector2( 640, 70 )
 custom_fonts/font = ExtResource( 2 )
 text = "CONTROLES"
 
-[node name="Button3" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+[node name="Bt_sonido" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
 margin_top = 180.0
 margin_right = 640.0
 margin_bottom = 250.0
@@ -98,41 +109,35 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 640, 70 )
 custom_fonts/font = ExtResource( 2 )
-text = "OTRAOPCION"
+text = "SONIDO"
 
-[node name="bt_bgSound" type="Button" parent="PAUSE_ON"]
-margin_left = 111.365
-margin_top = 560.474
-margin_right = 363.365
-margin_bottom = 630.474
+[node name="Bt_graficos" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+margin_top = 270.0
+margin_right = 640.0
+margin_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 150, 70 )
-rect_scale = Vector2( 1.00736, 1.05702 )
+rect_min_size = Vector2( 640, 70 )
 custom_fonts/font = ExtResource( 2 )
-text = "BG SOUND"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "GRAFICOS"
 
-[node name="bt_fxSound" type="Button" parent="PAUSE_ON"]
-margin_left = 942.422
-margin_top = 556.679
-margin_right = 1194.42
-margin_bottom = 626.679
+[node name="Bt_salir" type="Button" parent="PAUSE_ON/CenterContainer/VBoxContainer"]
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 430.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 150, 70 )
-rect_scale = Vector2( 1.00736, 1.05702 )
+rect_min_size = Vector2( 640, 70 )
 custom_fonts/font = ExtResource( 2 )
-text = "FX SOUND"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "SALIR"
 
-[node name="PAUSE_OFF" type="Control" parent="."]
+[node name="PAUSE_OFF" type="Popup" parent="."]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect2" type="TextureRect" parent="PAUSE_OFF"]
 margin_left = 1162.54
@@ -167,7 +172,103 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Pop_text" type="Popup" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -427.0
+margin_top = -240.0
+margin_right = 427.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay2" type="ColorRect" parent="Pop_text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -637.0
+margin_top = -359.0
+margin_right = 641.0
+margin_bottom = 367.0
+color = Color( 0.109804, 0.101961, 0.101961, 0.533333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay3" type="ColorRect" parent="Pop_text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -438.0
+margin_top = -250.0
+margin_right = 439.0
+margin_bottom = 289.0
+color = Color( 0.121569, 0.666667, 0.964706, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pop_text"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.99994
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pop_text/VBoxContainer"]
+margin_right = 850.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 2 )
+text = "TITUO SUPER MEGA CHOCOLATOSO"
+align = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pop_text/VBoxContainer"]
+margin_top = 59.0
+margin_right = 850.0
+margin_bottom = 459.0
+rect_min_size = Vector2( 0, 400 )
+
+[node name="Label" type="Label" parent="Pop_text/VBoxContainer/HBoxContainer"]
+margin_top = 29.0
+margin_right = 500.0
+margin_bottom = 369.0
+rect_min_size = Vector2( 500, 340 )
+custom_fonts/font = SubResource( 1 )
+text = "Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem loreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeem"
+autowrap = true
+clip_text = true
+
+[node name="TextureRect" type="TextureRect" parent="Pop_text/VBoxContainer/HBoxContainer"]
+margin_left = 504.0
+margin_right = 844.0
+margin_bottom = 400.0
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Pop_text/VBoxContainer"]
+margin_top = 463.0
+margin_right = 850.0
+margin_bottom = 507.0
+
+[node name="Button" type="Button" parent="Pop_text/VBoxContainer/CenterContainer"]
+margin_left = 176.0
+margin_right = 674.0
+margin_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "BOTON SUPPER MEGA LLAMATIVO"
 [connection signal="pressed" from="PAUSE_ON/CenterContainer/VBoxContainer/Bt_resume" to="." method="_on_Bt_resume_pressed"]
-[connection signal="pressed" from="PAUSE_ON/bt_bgSound" to="." method="_on_bt_bgSound_pressed"]
-[connection signal="pressed" from="PAUSE_ON/bt_fxSound" to="." method="_on_bt_fxSound_pressed"]
+[connection signal="pressed" from="PAUSE_ON/CenterContainer/VBoxContainer/Bt_salir" to="." method="_on_Bt_salir_pressed"]
 [connection signal="pressed" from="PAUSE_OFF/TextureRect2/bt_pause_off" to="." method="_on_bt_pause_off_pressed"]
+[connection signal="pressed" from="Pop_text/VBoxContainer/CenterContainer/Button" to="." method="_on_Button_pressed"]

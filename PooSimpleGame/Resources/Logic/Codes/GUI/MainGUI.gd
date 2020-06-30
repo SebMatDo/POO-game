@@ -10,10 +10,13 @@ var auxDuration=0
 func _process(_delta):
 
 	$Lb_fps.text="fps: " + str(Engine.get_frames_per_second())
-	
 
 	
-	
+func update_hud():
+	$Lb_ammo.text="ammo: "+ str(SingletonConfig.ammo)
+	$Lb_health.text="health: " + str( SingletonConfig.player_health)
+	$Lb_sickness.text="sick: " + str( SingletonConfig.player_sickness)
+
 
 func update_dash(dash):
 	#### ESTA FUNCIÓN DIBUJA EL NUMERO DE TRIANGULITOS(DASHES ) EN LA GUI
@@ -43,9 +46,12 @@ func load_dash(duration):
 	auxHeight=0
 	$spr_dash_load.region_rect=Rect2(0,0,301,0)
 	$tmr_update.start(auxDuration)
+func dash_fx(duration):
+	$dash_fx.visible=true
+	$tmr_dash_fx.start(duration)
 
 func _on_tmr_update_timeout():
-	#### UN TIMERUNIDO A LA FUNCIÓN LOAD_DASH, LO QUE HACE ES IR ACTUALIZANDO LA REGIÓN VISIBLE DEL SPRITE DE CARGADO
+	#### UN TIMER UNIDO A LA FUNCIÓN LOAD_DASH, LO QUE HACE ES IR ACTUALIZANDO LA REGIÓN VISIBLE DEL SPRITE DE CARGADO
 	var spr = $spr_dash_load
 	var aux_rect=spr.get_rect()
 	var aux_pos=aux_rect.position
@@ -59,3 +65,8 @@ func _on_tmr_update_timeout():
 	#### SOLO SI NO SE HA LLEGADO A LA ALTURA MAXIMA DEL SPRITE, REPETIR ESTE CONTADOR
 	if auxHeight<260:
 		$tmr_update.start(auxDuration)
+
+
+
+func _on_tmr_dash_fx_timeout():
+	$dash_fx.visible=false

@@ -1,37 +1,85 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/Visual/GUI/GUIFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Resources/Logic/Codes/GUI/MainGUI.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Visual/GUI/g2578.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Visual/GUI/g2559.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Visual/GUI/path2463.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Visual/Player/dash_fx_2.png" type="Texture" id=6]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Lb_fps" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 46.7651
+margin_top = 30.0633
+margin_right = 202.765
+margin_bottom = 85.0633
 custom_fonts/font = ExtResource( 1 )
 text = "FPS : "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Lb_ammo" type="Label" parent="."]
+margin_left = 1047.77
+margin_top = 627.172
+margin_right = 1167.77
+margin_bottom = 689.172
+custom_fonts/font = ExtResource( 1 )
+text = "AMMO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lb_grenades" type="Label" parent="."]
+margin_left = 1050.16
+margin_top = 566.614
+margin_right = 1320.16
+margin_bottom = 628.614
+custom_fonts/font = ExtResource( 1 )
+text = "G"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lb_health" type="Label" parent="."]
+margin_left = 33.897
+margin_top = 579.932
+margin_right = 153.897
+margin_bottom = 641.932
+custom_fonts/font = ExtResource( 1 )
+text = "vida"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lb_sickness" type="Label" parent="."]
+margin_left = 33.897
+margin_top = 648.405
+margin_right = 153.897
+margin_bottom = 710.405
+custom_fonts/font = ExtResource( 1 )
+text = "enfermedad"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="spr_dash_unload" type="Sprite" parent="."]
-position = Vector2( 3, 611 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 7.50203, 488.746 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="spr_dash_load" type="Sprite" parent="."]
-position = Vector2( 3, 611 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 7.50203, 488.746 )
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
@@ -53,4 +101,40 @@ texture = ExtResource( 5 )
 [node name="tmr_update" type="Timer" parent="."]
 process_mode = 0
 one_shot = true
+
+[node name="dash_fx" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="dash_fx"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="dash_fx"]
+position = Vector2( 6.68079, 551.16 )
+texture = ExtResource( 6 )
+centered = false
+flip_v = true
+
+[node name="Sprite3" type="Sprite" parent="dash_fx"]
+position = Vector2( 1135.72, 547.82 )
+texture = ExtResource( 6 )
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="Sprite4" type="Sprite" parent="dash_fx"]
+position = Vector2( 1135.72, 3.34027 )
+texture = ExtResource( 6 )
+centered = false
+flip_h = true
+
+[node name="tmr_dash_fx" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
 [connection signal="timeout" from="tmr_update" to="." method="_on_tmr_update_timeout"]
+[connection signal="timeout" from="tmr_dash_fx" to="." method="_on_tmr_dash_fx_timeout"]

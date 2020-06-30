@@ -3,6 +3,6 @@
 [ext_resource path="res://Resources/Visual/GUI/JetBrainsMono-Medium.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 50
+size = 44
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )

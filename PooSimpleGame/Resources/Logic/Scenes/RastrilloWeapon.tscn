@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Visual/Player/Rastrillo.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Visual/Player/path828.png" type="Texture" id=2]
+
+[node name="RastrilloWeapon" type="Node2D"]
+
+[node name="Sprite3" type="Sprite" parent="."]
+self_modulate = Color( 0.94902, 0.894118, 0.0392157, 1 )
+position = Vector2( 158.449, 0.108047 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2.25, 4 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -32 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+self_modulate = Color( 1, 0.960784, 0, 1 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 2 )

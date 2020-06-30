@@ -6,7 +6,9 @@ onready var fx_bg=$AudioStreamPlayer
 var fx=preload("res://Resources/Logic/Scenes/AudioStreamPlayer2D.tscn")
 var bg_volume=0
 func _ready():
-	pass
+	volume = SingletonConfig.sounds_dic["fx_volume"]
+	bg_volume =SingletonConfig.sounds_dic["bg_volume"]
+
 func create_sound(sound,pitch,added_vol):
 	var fx_snd=AudioStreamPlayer2D.new()
 	add_child(fx_snd)

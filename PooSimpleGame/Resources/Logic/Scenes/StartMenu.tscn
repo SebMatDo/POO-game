@@ -1,0 +1,502 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Resources/Visual/GUI/GUIFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Resources/Logic/Codes/GUI/StartMenu.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Visual/GUI/R3pA81hO_400x400.jpg" type="Texture" id=3]
+[ext_resource path="res://Resources/Logic/Codes/GUI/BasicButton.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Visual/GUI/JetBrainsMono-Medium.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 65
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+extra_spacing_char = -5
+extra_spacing_space = -15
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 39
+font_data = ExtResource( 5 )
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 3.54419
+margin_top = 59.802
+margin_right = 1284.54
+margin_bottom = 140.802
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 1, 0.180392, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "SUPER SAMPLE TEXT TITLE"
+align = 1
+valign = 1
+
+[node name="Pop_config" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.52588e-05
+margin_top = 234.918
+margin_bottom = -72.0818
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Pop_config"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 2.99979
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pop_config/CenterContainer"]
+margin_left = 266.0
+margin_right = 1014.0
+margin_bottom = 416.0
+
+[node name="Bt_c1" type="Button" parent="Pop_config/CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_right = 748.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 500, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "TECLADO"
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pop_config/CenterContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 748.0
+margin_bottom = 164.0
+
+[node name="Bt_c2" type="Button" parent="Pop_config/CenterContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_right = 150.0
+margin_bottom = 80.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 150, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "-"
+script = ExtResource( 4 )
+
+[node name="Lb_fx" type="Label" parent="Pop_config/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 154.0
+margin_top = 8.0
+margin_right = 594.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 440, 62 )
+custom_fonts/font = SubResource( 2 )
+text = "VOLUMEN EFECTO:"
+
+[node name="Bt_c3" type="Button" parent="Pop_config/CenterContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_left = 598.0
+margin_right = 748.0
+margin_bottom = 80.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 150, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "+"
+script = ExtResource( 4 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pop_config/CenterContainer/VBoxContainer"]
+margin_top = 168.0
+margin_right = 748.0
+margin_bottom = 248.0
+
+[node name="Bt_c4" type="Button" parent="Pop_config/CenterContainer/VBoxContainer/HBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_right = 150.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 150, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "-"
+script = ExtResource( 4 )
+
+[node name="Lb_music" type="Label" parent="Pop_config/CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 154.0
+margin_top = 8.0
+margin_right = 594.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 440, 62 )
+custom_fonts/font = SubResource( 2 )
+text = "VOLUMEN MUSICA:"
+
+[node name="Bt_c6" type="Button" parent="Pop_config/CenterContainer/VBoxContainer/HBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_left = 598.0
+margin_right = 748.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 150, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "+"
+script = ExtResource( 4 )
+
+[node name="Bt_c6" type="Button" parent="Pop_config/CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_top = 252.0
+margin_right = 748.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 500, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "GRÁFICOS"
+script = ExtResource( 4 )
+
+[node name="Bt_c7" type="Button" parent="Pop_config/CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.819608 )
+margin_top = 336.0
+margin_right = 748.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 500, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "VOLVER"
+script = ExtResource( 4 )
+
+[node name="Pop_menu1" type="Popup" parent="."]
+margin_left = 1.7581
+margin_top = 15.8228
+margin_right = 41.7581
+margin_bottom = 55.8228
+
+[node name="CenterContainer" type="CenterContainer" parent="Pop_menu1"]
+margin_left = -2.34298
+margin_top = 247.031
+margin_right = 1277.66
+margin_bottom = 647.031
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pop_menu1/CenterContainer"]
+margin_left = 390.0
+margin_top = 60.0
+margin_right = 890.0
+margin_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_jugar" type="Button" parent="Pop_menu1/CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+margin_right = 500.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 500, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "JUGAR"
+script = ExtResource( 4 )
+
+[node name="Bt_opciones" type="Button" parent="Pop_menu1/CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.5 )
+margin_top = 100.0
+margin_right = 500.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 500, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "OPCIONES"
+script = ExtResource( 4 )
+
+[node name="Bt_salir" type="Button" parent="Pop_menu1/CenterContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.5 )
+margin_top = 200.0
+margin_right = 500.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 500, 80 )
+custom_fonts/font = ExtResource( 1 )
+text = "SALIR"
+script = ExtResource( 4 )
+
+[node name="Pop_teclado" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 59.0
+margin_bottom = -68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="Pop_teclado"]
+margin_left = 3.0
+margin_top = -32.0
+margin_right = 1281.0
+margin_bottom = 632.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pop_teclado/CenterContainer2"]
+margin_left = 219.0
+margin_top = 16.0
+margin_right = 1059.0
+margin_bottom = 647.0
+custom_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pop_teclado/CenterContainer2/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 631.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lb_tecla1" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "IZQUIERDA"
+
+[node name="Lb_tecla2" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 57.0
+margin_right = 400.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "DERECHA"
+
+[node name="Lb_tecla3" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 114.0
+margin_right = 400.0
+margin_bottom = 169.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "SALTAR"
+
+[node name="Lb_tecla4" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 171.0
+margin_right = 400.0
+margin_bottom = 226.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "DASH"
+
+[node name="Lb_tecla5" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 228.0
+margin_right = 400.0
+margin_bottom = 283.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "GOLPE"
+
+[node name="Lb_tecla6" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 285.0
+margin_right = 400.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "GRANADA"
+
+[node name="Lb_tecla7" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 342.0
+margin_right = 400.0
+margin_bottom = 397.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "DISPARO1"
+
+[node name="Lb_tecla8" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 399.0
+margin_right = 400.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "DISPARO2"
+
+[node name="Lb_tecla9" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 456.0
+margin_right = 400.0
+margin_bottom = 511.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = ExtResource( 1 )
+text = "DISPARO3"
+
+[node name="Lb_tecla10" type="Label" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 513.0
+margin_right = 400.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "DISPARO4"
+
+[node name="Bt_t8" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 570.0
+margin_right = 400.0
+margin_bottom = 631.0
+rect_min_size = Vector2( 400, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "ACEPTAR"
+script = ExtResource( 4 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Pop_teclado/CenterContainer2/HBoxContainer"]
+margin_left = 440.0
+margin_right = 840.0
+margin_bottom = 631.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_t1" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_right = 400.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t2" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 57.0
+margin_right = 400.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t3" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 114.0
+margin_right = 400.0
+margin_bottom = 169.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t4" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 171.0
+margin_right = 400.0
+margin_bottom = 226.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t5" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 228.0
+margin_right = 400.0
+margin_bottom = 283.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t6" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 285.0
+margin_right = 400.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t7" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 342.0
+margin_right = 400.0
+margin_bottom = 397.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t8" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 399.0
+margin_right = 400.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t9" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 456.0
+margin_right = 400.0
+margin_bottom = 511.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t10" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 513.0
+margin_right = 400.0
+margin_bottom = 568.0
+rect_min_size = Vector2( 400, 55 )
+custom_fonts/font = SubResource( 3 )
+text = "SELECT HERE"
+script = ExtResource( 4 )
+
+[node name="Bt_t11" type="Button" parent="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+margin_top = 570.0
+margin_right = 400.0
+margin_bottom = 631.0
+rect_min_size = Vector2( 400, 30 )
+custom_fonts/font = ExtResource( 1 )
+text = "VOLVER"
+script = ExtResource( 4 )
+
+[node name="BasicButton" type="Button" parent="."]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pop_graficos" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+[connection signal="pressed" from="Pop_config/CenterContainer/VBoxContainer/Bt_c1" to="." method="_on_Bt_c1_pressed"]
+[connection signal="pressed" from="Pop_config/CenterContainer/VBoxContainer/HBoxContainer2/Bt_c4" to="." method="_on_Bt_c4_pressed"]
+[connection signal="pressed" from="Pop_config/CenterContainer/VBoxContainer/HBoxContainer2/Bt_c6" to="." method="_on_Bt_c6_pressed"]
+[connection signal="pressed" from="Pop_config/CenterContainer/VBoxContainer/Bt_c7" to="." method="_on_Bt_c5_pressed"]
+[connection signal="pressed" from="Pop_menu1/CenterContainer/VBoxContainer/Bt_jugar" to="." method="_on_Bt_jugar_pressed"]
+[connection signal="button_down" from="Pop_menu1/CenterContainer/VBoxContainer/Bt_opciones" to="." method="_on_Bt_opciones_button_down"]
+[connection signal="pressed" from="Pop_menu1/CenterContainer/VBoxContainer/Bt_salir" to="." method="_on_Bt_salir_pressed"]
+[connection signal="pressed" from="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer/Bt_t8" to="." method="_on_Bt_t8_pressed"]
+[connection signal="pressed" from="Pop_teclado/CenterContainer2/HBoxContainer/VBoxContainer2/Bt_t11" to="." method="_on_Bt_t7_pressed"]
