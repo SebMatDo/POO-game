@@ -1,0 +1,40 @@
+{"PEGOTE":["PEGOTE","Esta mezcla de basura organica e inorganica nace a partir de la falta de separación de residuos. Aunque parece inofensivo lentamente te va a enfermar hasta mermar tu salud. Ten cuidado, separa tu basura.
+
+\nEste enemigo saltará hacia ti si te ve, sin embargo es un poco ciego, manten distancia.
+","Pegote.png"], 
+
+"TRASHCAN":["TRASHCAN" ,"Este contenedor de basura está a rebosar, está lleno de basuras organicas e inorganica, incluso materiales radioactivos. Está enojada y escupirá toda su basura. Ten cuidado, separa tu basura y permite que la basura pueda ser reutilizada en compostaje.
+
+\nEste enemigo no tiene movilidad, acercate y reciclalo con tu escopeta!
+","TrashCan.png"],
+
+"EMPRESARIO":["CAPITALISTA IRRESPONSABLE","¡Este personaje tan sólo está interesado en el dinero! incluso si eso significa dañar el medio ambiente, este enemigo tratará de sobornarte a ti y a sus empleados con su sucio dinero. !concientizalos¡
+
+\nEste enemigo tiene extrema velocidad y precisión, trata de centrarte en él cada vez que lo veas.
+","Empresario.png"],
+
+"MOVIMIENTO":["MOVIMIENTO" ,"Para moverte utiliza las teclas W,A,S,D por defecto, o tus teclas definidas en configuración, utiliza SHIFT para hacer un avance rapido, cuidado con las cargas
+","Movimiento.png"],
+
+"DOBLE SALTO": ["SALTAR Y SALTAR", "Puedes saltar más de una vez, utiliza la tecla de salto en el aire para ir más lejos
+","DobleSalto.png"],
+
+"ESCOPETA": ["TU MEJOR ALIADA", "Para combatir la suciedad de este planeta estás armado con una escopeta que hiciste reciclando cartón, esta escopeta lanzará un montón de semillas para repoblar el mundo de arboles, las semillas quedan unidas a las superficies.
+Pero ten cuidado, no son ilimitadas. Consigues más semillas al reciclar un enemigo
+
+Dispara con las flechas del teclado, o con tus teclas definidas en configuración.
+","Escopeta.png"],
+
+"RASTRILLO":["ATAQUES CUERPO A CUERPO","Además de tu confiable escopeta, también estás armado con una de las herramientas más basicas del campo, un rastrillo. Este rastrillo es extremadamente útil contra enemigos no organicos, úsalo siempre que puedas, hace más daño que una bala y no tiene limite de uso!
+","Rastrillo.png"],
+
+"TUTORIAL COMPLETO":["TUTORIAL COMPLETADO","Acabas de completar el tutorial de los enemigos y los controles, ahora ve a limpiar este mundo de la suciedad, concientizalos a todos y planta muchos arboles. La contaminación te teme, sólo tú puedes cambiar el mundo.
+","TutorialCompleto.png"],
+
+"GRANADAS":["NUEVA ARMA: GRANADAS", "Siempre es útil tener una manera de sembrar arboles de forma masiva ¿Qué mejor que hacerlo con una granada reciclada? Utiliza la letra Q o tu letra configurada para lanzar una granada, esta arma explotará al entrar en contacto con cualquier cosa. Ten cuidado!, llena a esos sucios enemigos con miles de arboles en pocos segundos.
+Utiliza esta arma con precisión, no es usual encontrar granadas para poder reciclarlas, por lo tanto no tendrás tantas para lanzar.
+","GranadaConGui.png"]
+
+
+
+ }

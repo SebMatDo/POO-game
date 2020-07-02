@@ -9,12 +9,13 @@ var SPEED=20
 var JUMP = 0.02
 var rand=0
 var unreach=0.0
+
 ## state 0 es quieto,1 es lanzandose,2 moviendose al azar
 
 func _ready():
 	dmg=10
 	health=10
-
+	collision_shape=$CollisionShape2D
 
 func _physics_process(_delta):
 	if disable==false:
@@ -90,8 +91,5 @@ func _on_Area_detect_body_exited(body):
 	if body.is_in_group("player"):
 		state=2
 		
-func hit(pj):
-	if pj.canHurt==true:
-		pj.health-=dmg
-		pj.hurt(position)
+func added_hit():
 	unreach=0.0

@@ -7,17 +7,21 @@
 [node name="GunWeaponCarton" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite2" type="Sprite" parent="."]
-self_modulate = Color( 0.960784, 0.909804, 0.34902, 1 )
+[node name="spr_hand1" type="Sprite" parent="."]
+self_modulate = Color( 0.8, 0.690196, 0.560784, 1 )
 position = Vector2( -28.8712, 18.0263 )
 scale = Vector2( 0.8, 0.7 )
 texture = ExtResource( 3 )
 
 [node name="spr_WeaponCarton" type="Sprite" parent="."]
+self_modulate = Color( 0.501961, 0.266667, 0, 1 )
 texture = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 0.960784, 0.909804, 0.34902, 1 )
+[node name="spr_hand2" type="Sprite" parent="."]
+self_modulate = Color( 0.8, 0.690196, 0.560784, 1 )
 position = Vector2( 127.572, 13.9452 )
 scale = Vector2( 0.8, 0.7 )
 texture = ExtResource( 3 )
+
+[node name="spr_bullet_location" type="Sprite" parent="."]
+position = Vector2( 233.348, -53.9716 )

@@ -100,16 +100,29 @@ tracks/2/keys = {
 "update": 1,
 "values": [ Vector2( 0.75, 0.75 ), Vector2( 0.277593, 0.277593 ), Vector2( 0.803919, 0.803919 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pegote:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="CircleShape2D" id=4]
 
 [node name="Pegote" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 3
-collision/safe_margin = 2.0
+collision/safe_margin = 10.0
 script = ExtResource( 4 )
 
 [node name="Pegote" type="Sprite" parent="."]
+self_modulate = Color( 0.721569, 0.627451, 0.686275, 1 )
 z_index = 1
 texture = ExtResource( 1 )
 
@@ -150,10 +163,8 @@ scale = Vector2( 0.303393, 0.303393 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 3.14159
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/death = SubResource( 2 )

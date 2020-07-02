@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Resources/Visual/GUI/GUIFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Resources/Logic/Codes/GUI/MainGUI.gd" type="Script" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://Resources/Visual/GUI/g2559.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Visual/GUI/path2463.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Visual/Player/dash_fx_2.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Visual/GUI/g930.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Visual/GUI/g1195.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Visual/GUI/g1152.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Visual/GUI/g985.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Visual/GUI/g1215.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Visual/GUI/Guigrenade.png" type="Texture" id=12]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -17,10 +23,10 @@ __meta__ = {
 }
 
 [node name="Lb_fps" type="Label" parent="."]
-margin_left = 46.7651
-margin_top = 30.0633
-margin_right = 202.765
-margin_bottom = 85.0633
+margin_left = 10.8463
+margin_top = 5.36915
+margin_right = 166.846
+margin_bottom = 60.3691
 custom_fonts/font = ExtResource( 1 )
 text = "FPS : "
 __meta__ = {
@@ -28,58 +34,25 @@ __meta__ = {
 }
 
 [node name="Lb_ammo" type="Label" parent="."]
-margin_left = 1047.77
-margin_top = 627.172
-margin_right = 1167.77
-margin_bottom = 689.172
+margin_left = 1077.48
+margin_top = 649.418
+margin_right = 1259.48
+margin_bottom = 711.418
 custom_fonts/font = ExtResource( 1 )
-text = "AMMO"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Lb_grenades" type="Label" parent="."]
-margin_left = 1050.16
-margin_top = 566.614
-margin_right = 1320.16
-margin_bottom = 628.614
-custom_fonts/font = ExtResource( 1 )
-text = "G"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Lb_health" type="Label" parent="."]
-margin_left = 33.897
-margin_top = 579.932
-margin_right = 153.897
-margin_bottom = 641.932
-custom_fonts/font = ExtResource( 1 )
-text = "vida"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Lb_sickness" type="Label" parent="."]
-margin_left = 33.897
-margin_top = 648.405
-margin_right = 153.897
-margin_bottom = 710.405
-custom_fonts/font = ExtResource( 1 )
-text = "enfermedad"
+text = "AMMO:99"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="spr_dash_unload" type="Sprite" parent="."]
-position = Vector2( 7.50203, 488.746 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 1092.1, 581.975 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="spr_dash_load" type="Sprite" parent="."]
-position = Vector2( 7.50203, 488.746 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 1092.1, 581.975 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 centered = false
 region_enabled = true
@@ -102,6 +75,10 @@ texture = ExtResource( 5 )
 process_mode = 0
 one_shot = true
 
+[node name="tmr_updateGrenade" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
 [node name="dash_fx" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -111,24 +88,28 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="dash_fx"]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="dash_fx"]
-position = Vector2( 6.68079, 551.16 )
+position = Vector2( 9.67737, 379.36 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
 flip_v = true
 
 [node name="Sprite3" type="Sprite" parent="dash_fx"]
-position = Vector2( 1135.72, 547.82 )
+position = Vector2( 1000.87, 379.016 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
 flip_h = true
 flip_v = true
 
 [node name="Sprite4" type="Sprite" parent="dash_fx"]
-position = Vector2( 1135.72, 3.34027 )
+position = Vector2( 997.883, 2.34027 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 centered = false
 flip_h = true
@@ -136,5 +117,58 @@ flip_h = true
 [node name="tmr_dash_fx" type="Timer" parent="."]
 process_mode = 0
 one_shot = true
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 103.193
+margin_top = 604.656
+margin_right = 387.193
+margin_bottom = 679.656
+rect_min_size = Vector2( 200, 30 )
+rect_scale = Vector2( 0.5, 0.5 )
+max_value = 100.0
+step = 2.0
+value = 50.0
+rounded = true
+texture_under = ExtResource( 11 )
+texture_progress = ExtResource( 10 )
+tint_under = Color( 0.341176, 0, 0, 0.647059 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SickBar" type="TextureProgress" parent="."]
+margin_left = 70.8256
+margin_top = 663.439
+margin_right = 354.826
+margin_bottom = 738.439
+rect_min_size = Vector2( 200, 75 )
+rect_scale = Vector2( 0.5, 0.5 )
+rect_clip_content = true
+max_value = 100.0
+step = 2.0
+value = 50.0
+rounded = true
+texture_under = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+tint_under = Color( 0.14, 0.14, 0, 0.603922 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spr_health" type="Sprite" parent="."]
+position = Vector2( 71.0122, 621.457 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="spr_sick" type="Sprite" parent="."]
+position = Vector2( 37.9866, 679.522 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="spr_grenade" type="Sprite" parent="."]
+position = Vector2( 1214.68, 612.295 )
+scale = Vector2( 0.404569, 0.404569 )
+texture = ExtResource( 12 )
 [connection signal="timeout" from="tmr_update" to="." method="_on_tmr_update_timeout"]
+[connection signal="timeout" from="tmr_updateGrenade" to="." method="_on_tmr_updateGrenade_timeout"]
 [connection signal="timeout" from="tmr_dash_fx" to="." method="_on_tmr_dash_fx_timeout"]

@@ -14,11 +14,12 @@ func _on_GrenadeWeapon_body_entered(body):
 
 
 func _on_tmr_Explode_timeout():
-	for i in range(cuantity):
+	for i in range(0,cuantity):
+		#print("GHRANADA ; : ",i)
 		var aux = fragments.instance()
 		aux.position=global_position
 		aux.gravity=1
-		var aux_vec=deg2rad( (360/5)*i )
+		var aux_vec=deg2rad( (360/cuantity)*i )
 		aux.dir=Vector2(cos(aux_vec),sin(aux_vec))*SPEED
 		aux.scale.x=0.5
 		aux.scale.y=0.5

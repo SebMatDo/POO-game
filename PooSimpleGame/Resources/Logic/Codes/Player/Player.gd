@@ -18,11 +18,13 @@ var dashActual=dashMax
 
 ### Variables de estadisticas del personaje
 var health = 100
+var max_health=100
 var sickness = 0
+var max_sickness=50
 const meleeCD=0.55
 var maxGrenade=1
 var actualGrenade=maxGrenade
-
+var grenadeCD=5
 #### INICIALIZAR BOOLEANOS DE ESTADOS ###
 var isShooting = false
 var isMelee = false
@@ -39,7 +41,8 @@ onready var dust=load("res://Resources/Logic/Scenes/Particle_dust.tscn")
 onready var gun=$Sprite/spr_torso/spr_weapon_holder/GunWeaponCarton
 onready var rastrillo =$Sprite/spr_torso/spr_weapon_holder/RastrilloWeapon
 onready var grenade=preload("res://Resources/Logic/Scenes/GrenadeWeapon.tscn")
-onready var animator=$AnimationPlayer
+onready var animatorWeapon=$AnimationAttacks
+onready var animatorPlayer = $AnimationPlayerStates
 ### SEÑALES AUXILIARES
 signal groundedUpdated(isFloor)
 
@@ -47,8 +50,10 @@ signal groundedUpdated(isFloor)
 func _ready():
 	yield(get_tree().create_timer(0.1),"timeout")
 	parent.update_dash(dashActual)
-
-
+	animatorWeapon.play("Shoot")
+	SingletonConfig.update_player_health(health,sickness,max_health,max_sickness)
+	
+	
 func _physics_process(_delta):
 	### SE OBTIENE EL O LOS BOTONES DEL JUGADOR
 	if canMove==true:
@@ -124,35 +129,55 @@ func get_input():
 	if (Input.is_action_just_pressed("melee")):
 		if isMelee==false:
 			isMelee=true
-			$AnimationPlayer.play("MeleeAtk")
+			
+			animatorWeapon.play("MeleeAtk")
 			$tmr_MeleeCD.start(meleeCD)
 			gun.visible=false
-			rastrillo.visible=true
+			
 	
 	if (Input.is_action_pressed("shoot_left")):
 		
 		if gun.canShoot==true:
-			$AnimationPlayer.play("Shoot")
-			gun.shoot(-180)
+			gun.rotation=deg2rad(0)
+			gun.scale.x=-1*$Sprite.scale.x
+			gun.scale.y=1
+			animatorWeapon.play("Shoot")
+			gun.shoot(180)
 			
 	if (Input.is_action_pressed("shoot_right")):
 		
 		if gun.canShoot==true:
-			$AnimationPlayer.play("Shoot")
-			gun.shoot(-0)
+			gun.rotation=deg2rad(0)
+			gun.scale.x=$Sprite.scale.x
+			gun.scale.y=1
+			animatorWeapon.play("Shoot")
+			gun.shoot(0)
 			
 	if (Input.is_action_pressed("shoot_up")):
 		
 		if gun.canShoot==true:
-			$AnimationPlayer.play("Shoot")
+			gun.rotation=deg2rad(-90)
+			gun.scale.y=1
+			gun.scale.x=1
+			animatorWeapon.play("Shoot")
 			gun.shoot(-90)
-		
-	if (Input.is_action_pressed("shoot_down")):
-		
-		if gun.canShoot==true:
-			$AnimationPlayer.play("Shoot")
-			gun.shoot(-270)
 			
+	if (Input.is_action_pressed("shoot_down")):
+		if gun.canShoot==true:
+			gun.rotation=deg2rad(-90)
+			gun.scale.y=-1
+			gun.scale.x=-1
+			animatorWeapon.play("Shoot")
+			gun.shoot(-270)
+
+	if (!Input.is_action_pressed("shoot_down") && !Input.is_action_pressed("shoot_left") && !Input.is_action_pressed("shoot_right") && !Input.is_action_pressed("shoot_up")):
+		
+		if  animatorWeapon.current_animation=="":
+			if animatorWeapon.current_animation_position == animatorWeapon.current_animation_length:
+				gun.scale.x=1
+				gun.scale.y=1
+				gun.rotation=0
+
 	if (Input.is_action_just_pressed("grenade")):
 		if canGrenade==true and actualGrenade>0:
 			canGrenade=false
@@ -160,23 +185,25 @@ func get_input():
 			aux_grenade.position=self.global_position
 			aux_grenade.linear_velocity=Vector2((1550*$Sprite.scale.x),-800)
 			aux_grenade.dmg=5
-			aux_grenade.cuantity=10
+			aux_grenade.cuantity=15
 			get_tree().root.get_node("World").add_child(aux_grenade)
-			$tmr_GrenadeCD.start(0.5)
+			$tmr_GrenadeCD.start(grenadeCD)
+			parent.HUD.update_grenadeCD(grenadeCD)
 
-func hurt(enemy_pos):
+func hurt(enemy_pos,enemy_dmg : float):
 
 	canHurt=false
-	animator.play("Hurt")
+	animatorPlayer.play("Hurt")
 	canMove=false
 	var aux_dir=(enemy_pos.x-position.x)
 	velocity.x=speed*(aux_dir/abs(aux_dir))*-1*1.25
 	$tmr_canHurtCD.start(0.7)
 	$tmr_Hurted.start(0.185)
-	SingletonConfig.update_player_health(health,sickness)
-
-
-
+	SingletonConfig.update_player_health(health,sickness,max_health,max_sickness)
+	$Camera2D.add_trauma(enemy_dmg/100)
+	if health<=0:
+		death()
+	
 func _on_tmr_CoyoteJump_timeout():
 	#### ESTE ES EL TIMER DEL COYOTE JUMP, CUANDO SE ACABA, SE TOMA COMO REALIZADO UN SALTO
 	if jumpActual==0:
@@ -218,3 +245,9 @@ func _on_tmr_canHurtCD_timeout():
 
 func _on_tmr_Hurted_timeout():
 	canMove=true
+
+func death():
+	canMove=false
+	canHurt=false
+	## hacer la animacion
+	parent.change_scene("res://Resources/Logic/Scenes/Muerte.tscn")

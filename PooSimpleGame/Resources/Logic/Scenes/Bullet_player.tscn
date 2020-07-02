@@ -8,12 +8,14 @@
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "bullet",
 ]]
+self_modulate = Color( 0.419608, 0.541176, 0.113725, 1 )
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.58, 0.45472, 0.1102, 1 )
+texture = ExtResource( 1 )

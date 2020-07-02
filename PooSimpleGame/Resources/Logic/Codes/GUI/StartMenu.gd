@@ -1,6 +1,6 @@
 extends Control
 
-### PARA CAMBIAR LAS TECLAS, REF:https://www.gotut.net/godot-key-bindings-tutorial/
+### PARA CAMBIAR LAS TECLAS, REF:ttps://www.gotut.net/godot-key-bindings-tutorial/
 var can_change_key = false
 var action_string
 enum ACTIONS {left, right, jump,dash,melee,grenade,shoot_left,shoot_right,shoot_down,shoot_up}
@@ -10,12 +10,16 @@ var graphics_dic: Dictionary
 var json :Dictionary
 const CONST_VOLUME_BG="VOLUMEN MUSICA:"
 const CONST_VOLUME_FX="VOLUMEN EFECTO:"
-onready var Lb_fx=$Pop_config/CenterContainer/VBoxContainer/HBoxContainer2/Lb_music
+onready var Lb_fx=$Pop_config/CenterContainer/VBoxContainer/HBoxContainer/Lb_fx
+onready var Lb_music=$Pop_config/CenterContainer/VBoxContainer/HBoxContainer2/Lb_music
+onready var Lb_width =$Pop_graficos/VBoxContainer/HBoxContainer/VBoxContainer2/Text_edit_width
+onready var Lb_heigth = $Pop_graficos/VBoxContainer/HBoxContainer/VBoxContainer2/Text_edith_height
+onready var Lb_full =$Pop_graficos/VBoxContainer/HBoxContainer/VBoxContainer2/Check_full
 
 func _ready():
 	$Pop_menu1.visible=true
 	var load_conf=load_config()
-	print("Cargado: ",load_conf, typeof( load_conf))
+
 
 	if load_conf.has("ERROR"):
 		##save_config por default
@@ -30,7 +34,18 @@ func _ready():
 		auxButton.connect("pressed",self,"_mark_button",[auxButton.action])
 		
 		i+=1
-
+	Lb_music.text=CONST_VOLUME_BG + str ( 100 + int (sounds_dic["bg_volume"]) )
+	Lb_fx.text=CONST_VOLUME_FX+ str ( 100 + int (sounds_dic["fx_volume"]) )
+	
+	var width=graphics_dic["width"]
+	var height = graphics_dic["heigth"]
+	var full = graphics_dic["full_screen"]
+	Lb_width.text=width
+	Lb_heigth.text=height
+	Lb_full.pressed=full
+	OS.set_window_size(Vector2(width,height))
+	OS.window_fullscreen=full
+	
 func _mark_button(string):
 	can_change_key = true
 	action_string = string
@@ -89,7 +104,6 @@ func save_config(content):
 	file.open("user://ForEarthConfig.dat", File.WRITE)
 	file.store_string(content)
 	file.close()
-	print("Guardado: ",content)
 
 func load_config():
 	var file = File.new()
@@ -132,6 +146,7 @@ func charge_config(content):
 	Lb_fx.text=CONST_VOLUME_BG+str(sounds_dic["bg_volume"])
 	
 func _on_Bt_jugar_pressed():
+
 	SingletonConfig.Input_dic=Input_dic
 	SingletonConfig.graphics_dic=graphics_dic
 	SingletonConfig.sounds_dic=sounds_dic
@@ -139,11 +154,13 @@ func _on_Bt_jugar_pressed():
 	get_tree().change_scene("res://Resources/Logic/Scenes/World.tscn")
 
 func _on_Bt_opciones_button_down():
+
 	$Pop_menu1.visible=false
 	$Pop_config.visible=true
 
 
 func _on_Bt_salir_pressed():
+	
 	get_tree().quit()
 
 
@@ -233,9 +250,39 @@ func _on_Bt_c5_pressed():
 
 func _on_Bt_c4_pressed():
 	update_config(null,null,null,null,null,null,null,null,null,null,null,sounds_dic["bg_volume"]-5,null,null,null)
-	Lb_fx.text=CONST_VOLUME_BG+str(sounds_dic["bg_volume"])
+	Lb_music.text=CONST_VOLUME_BG + str ( 100 + int (sounds_dic["bg_volume"]) )
 
 
 func _on_Bt_c6_pressed():
 	update_config(null,null,null,null,null,null,null,null,null,null,null,sounds_dic["bg_volume"]+5,null,null,null)
-	Lb_fx.text=CONST_VOLUME_BG+str(sounds_dic["bg_volume"])
+	Lb_music.text=CONST_VOLUME_BG+ str ( 100 + int (sounds_dic["bg_volume"]) )
+
+
+func _on_Bt_c2_pressed():
+	update_config(null,null,null,null,null,null,null,null,null,null,sounds_dic["fx_volume"]-5,null,null,null,null)
+	Lb_fx.text=CONST_VOLUME_FX+ str ( 100 + int (sounds_dic["fx_volume"]) )
+
+
+func _on_Bt_c3_pressed():
+	update_config(null,null,null,null,null,null,null,null,null,null,sounds_dic["fx_volume"]+5,null,null,null,null)
+	Lb_fx.text=CONST_VOLUME_FX+ str ( 100 + int (sounds_dic["fx_volume"]) )
+
+
+func _on_Bt_c8_pressed():
+	$Pop_config.visible=false
+	$Pop_graficos.visible=true
+
+
+func _on_Bt_g1_pressed():
+	$Pop_config.visible=true
+	$Pop_graficos.visible=false
+	var width = Lb_width.text
+	var height = Lb_heigth.text
+	var full = Lb_full.is_pressed()
+	update_config(null,null,null,null,null,null,null,null,null,null,null,null,width,height,full)
+	OS.set_window_size(Vector2(width,height))
+	OS.window_fullscreen=full
+	
+func _on_Bt_g2_pressed():
+	$Pop_config.visible=true
+	$Pop_graficos.visible=false

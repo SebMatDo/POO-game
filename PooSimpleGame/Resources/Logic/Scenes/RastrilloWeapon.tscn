@@ -1,23 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Visual/Player/Rastrillo.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Visual/Player/path828.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Logic/Codes/Player/Weapons/RastrilloWeapon.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 70.0037, 131.728 )
 
 [node name="RastrilloWeapon" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="."]
-self_modulate = Color( 0.94902, 0.894118, 0.0392157, 1 )
+self_modulate = Color( 0.8, 0.690196, 0.560784, 1 )
 position = Vector2( 158.449, 0.108047 )
 scale = Vector2( 0.8, 0.7 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.501961, 0.266667, 0, 1 )
 scale = Vector2( 2.25, 4 )
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( 0, -32 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-self_modulate = Color( 1, 0.960784, 0, 1 )
+self_modulate = Color( 0.8, 0.690196, 0.560784, 1 )
 scale = Vector2( 0.8, 0.7 )
 texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 401.637, 4.24266 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

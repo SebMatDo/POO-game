@@ -5,6 +5,7 @@
 [node name="miniTree" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.41, 0.2378, 0.041, 1 )
 rotation = -1.5708
 scale = Vector2( 0.4, 0.45 )
 texture = ExtResource( 1 )
