@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Visual/Enemigos/trashcan/g1010.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Logic/Codes/Enemigos/TrashCan.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Visual/Enemigos/trashcan/g1049.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Visual/Enemigos/trashcan/g1091.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Visual/Enemigos/trashcan/Attack1/path1088.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Visual/Enemigos/trashcan/Attack1/g1149.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 67.1255, 118.343 )
@@ -13,7 +12,7 @@ extents = Vector2( 67.1255, 118.343 )
 [sub_resource type="Animation" id=2]
 resource_name = "atk1"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("spr_principal:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -25,7 +24,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/path = NodePath("spr_principal:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -77,32 +76,32 @@ tracks/4/keys = {
 resource_name = "death"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("spr_2:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ), ExtResource( 4 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 2.86035, 1.14694 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/path = NodePath("spr_2:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, -44.9999, -74.9999, -89.9999, -89.9999 ]
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.196078, 0.227451, 0.105882, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("spr_2:texture")
-tracks/2/interp = 1
+tracks/2/path = NodePath("spr_2:position")
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -110,10 +109,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 6 ) ]
+"values": [ Vector2( 7.79752, -11.1437 ), Vector2( -44.6693, -3.74928 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("spr_2:scale")
+tracks/3/path = NodePath("spr_2:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -121,122 +120,86 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 3.741, 2.69 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("spr_2:self_modulate")
-tracks/4/interp = 1
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 0 ), Color( 0.196078, 0.227451, 0.105882, 1 ) ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -30.0, -60.0, -75.0, -90.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("spr_2:position")
+tracks/5/path = NodePath("spr_2:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 7.79752, -11.1437 ), Vector2( -28.2431, 20.8925 ), Vector2( -28.2431, 20.8925 ) ]
+"values": [ 0.0, 89.9999 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("spr_2:rotation_degrees")
+tracks/6/path = NodePath(".:collision_layer")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 0.0 ]
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite:visible")
+tracks/7/path = NodePath(".:collision_mask")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 3, 2 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Sprite:position")
+tracks/8/path = NodePath("spr_principal:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.7, 0.7 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("CollisionShape2D:position")
+tracks/9/path = NodePath("CollisionShape2D:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("CollisionShape2D:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath(".:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 84.9486 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath(".:rotation_degrees")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.7, 0.7 ) ]
 }
 
 [sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/path = NodePath("spr_principal:self_modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -251,21 +214,19 @@ tracks/0/keys = {
 [node name="TrashCan" type="KinematicBody2D" groups=[
 "metal",
 ]]
-position = Vector2( 0, 84.9486 )
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="spr_2" type="Sprite" parent="."]
-self_modulate = Color( 0.196078, 0.227451, 0.105882, 1 )
-position = Vector2( -28.2431, 20.8925 )
-scale = Vector2( 3.741, 2.69 )
-texture = ExtResource( 6 )
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 7.79752, -11.1437 )
+scale = Vector2( 0.166156, 0.132673 )
+texture = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="spr_principal" type="Sprite" parent="."]
 self_modulate = Color( 0.694902, 0.70902, 0.70549, 1 )
-rotation = -1.57079
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

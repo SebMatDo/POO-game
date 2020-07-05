@@ -7,12 +7,14 @@ func _ready():
 func _process(_delta):
 	###  AQUI SE PAUSA EL JUEGO Y TODO ESTO SE SIGUE EJECUTANDO
 	
-	if Input.is_action_just_pressed("ui_cancel"):
-		if $Pop_text.visible==false:
+	
+	if $Pop_text.visible==false:
+		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().paused=!get_tree().paused
 			$PAUSE_ON.visible=get_tree().paused
 			$PAUSE_OFF.visible=!get_tree().paused
-		else:
+	else:
+		if Input.is_action_just_pressed("ui_cancel") or  Input.is_action_just_pressed("ui_accept") or  Input.is_action_just_pressed("melee"):
 			$Pop_text.visible=false
 			get_tree().paused=false
 	

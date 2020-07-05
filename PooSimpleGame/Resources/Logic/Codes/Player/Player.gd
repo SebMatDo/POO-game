@@ -24,7 +24,7 @@ var max_sickness=50
 const meleeCD=0.55
 var maxGrenade=1
 var actualGrenade=maxGrenade
-var grenadeCD=5
+var grenadeCD=3
 #### INICIALIZAR BOOLEANOS DE ESTADOS ###
 var isShooting = false
 var isMelee = false
@@ -83,8 +83,7 @@ func _physics_process(_delta):
 		isFloor=false
 	emit_signal("groundedUpdated",isFloor)
 	velocity = move_and_slide(velocity,Vector2.UP)
-	
-
+	#print(velocity)
 
 func get_input():
 	#### ESTA FUNCIÓN OBTIENE CONSTANTEMENTE LOS INPUT DEL JUGADOR, LAS PALABRAS SON VARIABLES UNIDAS A UNA LETRA O BOTÓN DE MANDO

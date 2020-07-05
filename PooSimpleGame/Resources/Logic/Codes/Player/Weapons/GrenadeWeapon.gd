@@ -24,6 +24,8 @@ func _on_tmr_Explode_timeout():
 		aux.scale.x=0.5
 		aux.scale.y=0.5
 		aux.tree_scale=0.5
+		
+		
 		aux.dmg=dmg
 		aux.scale=Vector2(0.75,0.75)
 		get_tree().root.get_node("World").add_child(aux)

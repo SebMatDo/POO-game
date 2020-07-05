@@ -5,8 +5,9 @@ var dmg: int
 var disable=false
 var coll
 var invencible = false
-var collision_shape
-
+var collision_disable=false
+var GRAVITY : float
+var FRICTION :float
 func _ready():
 	### ESTO LOS METE EN UN SOLO GRUPO Y EVITA QUE SE COLISIONEN ENTRE SÍ
 	add_to_group("enemy")
@@ -16,11 +17,20 @@ func _ready():
 		
 
 func _physics_process(_delta):
+	
+	dir.y+=GRAVITY
+	coll = move_and_collide(dir,false,false,false)
 	if disable==false:
-		coll = move_and_collide(dir,true,false,false)
 		if coll!=null and coll.collider.is_in_group("player"):
 			hit(coll.collider)
-
+		if coll!=null and coll.collider.is_in_group("wall"):
+			dir.y=GRAVITY
+			if dir.x>2+FRICTION:
+				dir.x-=FRICTION
+			elif dir.x<-2-FRICTION:
+				dir.x+=FRICTION
+			if dir.x<2+FRICTION and dir.x>-2-FRICTION:
+				dir.x=0
 func hit(pj):
 	if pj.canHurt==true:
 		pj.health-=dmg
@@ -41,12 +51,10 @@ func hurt_animation():
 
 func death():
 	invencible=true
-	collision_shape.disabled=true
-	
+	#DESACTIVAR LA COLISION SE HACE EN EL HJIJO
 	disable=true
-	set_collision_mask_bit(0,false)
-	set_collision_mask_bit(1,false)
-	set_collision_layer_bit(1,false)
+	
+
 	
 	
 	

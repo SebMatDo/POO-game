@@ -8,19 +8,19 @@ onready var mocusball= preload("res://Resources/Logic/Scenes/Enemigos/TrashCanAt
 func _ready():
 	health=50
 	dmg=2
-	collision_shape=$CollisionShape2D
-
+	GRAVITY=3
+	FRICTION=1
+	
 func _physics_process(_delta):
-	dir.y+=3
 	if disable==false:
 		if rc.is_colliding():
 			if rc.get_collider().is_in_group("player"):
 			
 			#print(rc.get_collision_point(),"\t",position,"\t",rc.get_collision_point().x-position.x)
 				if (rc.get_collision_point().x-position.x)>0:
-					$Sprite.scale.x=1
+					$spr_principal.scale.x=1
 				elif (rc.get_collision_point().x-position.x)<0 :
-					$Sprite.scale.x=-1
+					$spr_principal.scale.x=-1
 				
 				if canAtk1==true:
 					$tmr_atk1.start(1)
@@ -32,7 +32,7 @@ func attack1():
 	var aux=mocusball.instance()
 	aux.position=position
 	aux.invencible=true
-	aux.dir=Vector2(atkSpeed*$Sprite.scale.x,0)
+	aux.dir=Vector2(atkSpeed*$spr_principal.scale.x,0)
 	get_tree().root.get_node("World").call_deferred("add_child",aux)
 	
 func _on_tmr_atk1CD_timeout():

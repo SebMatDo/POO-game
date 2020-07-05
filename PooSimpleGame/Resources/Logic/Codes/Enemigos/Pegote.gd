@@ -15,14 +15,14 @@ var unreach=0.0
 func _ready():
 	dmg=10
 	health=10
-	collision_shape=$CollisionShape2D
-
+	GRAVITY=1
+	FRICTION=4
+	
+	
 func _physics_process(_delta):
 	if disable==false:
 		if movable==true:
 			rotation=dir.angle()
-			dir.y+=gravity
-			
 			if canThrow==true:
 				if state==1:
 					$tmr_move.start(1)

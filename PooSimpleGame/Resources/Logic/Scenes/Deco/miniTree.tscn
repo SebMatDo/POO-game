@@ -2,10 +2,12 @@
 
 [ext_resource path="res://Resources/Visual/Player/miniarbol.png" type="Texture" id=1]
 
-[node name="miniTree" type="Node2D"]
+[node name="miniTree" type="Node2D" groups=[
+"tree",
+]]
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 0.41, 0.2378, 0.041, 1 )
+self_modulate = Color( 0.443137, 0.6, 0.305882, 1 )
 rotation = -1.5708
 scale = Vector2( 0.4, 0.45 )
 texture = ExtResource( 1 )

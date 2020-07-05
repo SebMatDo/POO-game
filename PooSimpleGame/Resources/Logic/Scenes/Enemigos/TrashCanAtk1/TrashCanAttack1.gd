@@ -12,5 +12,6 @@ func _physics_process(_delta):
 
 func added_hit():
 	hited+=1
+	dmg=10
 	if hited==2:
 		queue_free()

@@ -27,5 +27,5 @@ func create_tree():
 	aux.position=coll.position
 	var aux_rotation= (coll.position-position).angle()
 	aux.rotation=aux_rotation
-	aux.scale=Vector2(tree_scale,tree_scale)
+	aux.scale=Vector2(tree_scale,tree_scale+0.15)
 	return aux

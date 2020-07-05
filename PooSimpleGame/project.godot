@@ -85,9 +85,11 @@ grenade={
 [physics]
 
 2d/default_gravity=1000
+common/enable_object_picking=false
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 quality/filters/anisotropic_filter_level=2
 quality/directional_shadow/size=1024
 quality/directional_shadow/size.mobile=1024
